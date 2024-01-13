@@ -1,0 +1,28 @@
+<div [ngClass]="klasi()" 
+[ngStyle]="{'background-image':'url(https://wallpapers.com/images/featured/how-to-train-your-dragon-tb8bu78cib3itwh0.jpg)'
+        ,'text-weight': 'bold'}">
+    <div class="course-title">
+        {{reden+". "+vozac.name}}
+    </div>
+    <ng-template #noImg>
+        <h1>Puff.. No dragon :( </h1>
+    </ng-template>
+
+    <img [src]="vozac.iconUrl" width="450px" height="300px" *ngIf="vozac.iconUrl; else noImg"
+        [ngStyle]="{'border': 'solid black 2px', 'border-radius': '15px'}">
+    
+    <div class="course-description" [ngStyle]="{'color': 'blue', 'font-size':'20px'}">
+        <h3>{{vozac.team}}</h3>
+    </div>
+
+    <div>
+        <h3 [ngStyle]="{'color': 'red'}">Points: {{vozac.pointers}}</h3>
+    </div>
+
+    <div class="course-category" [ngSwitch]="vozac.category">
+        <div [ngStyle]="{'font-size':'20px', 'color': 'white', 'background-color': 'green'}" class="category" *ngSwitchCase="'ADVANCED'">Leta kako zmaj</div>
+        <div [ngStyle]="{'font-size':'20px', 'color': 'white', 'background-color': 'green'}" class="category" *ngSwitchCase="'BEGINNER'">Leta kako zhenka zmaj</div>
+        <div [ngStyle]="{'font-size':'20px', 'color': 'white', 'background-color': 'green'}" class="category" *ngSwitchDefault>Ne leta</div>
+    </div>
+    <button (click)="klikni()">Klikni</button>
+</div>
